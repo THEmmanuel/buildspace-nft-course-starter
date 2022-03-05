@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './styles/App.css';
 import twitterLogo from './assets/twitter-logo.svg';
 import { ethers } from 'ethers';
+import NFTStuff from './utils/NFTStuff.json';
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
@@ -54,7 +55,7 @@ const App = () => {
     try {
       const { ethereum } = window;
       if (ethereum) {
-        const provider = new ethers.provider.web3Provider(ethereum);
+        const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, NFTStuff.abi, signer);
 
